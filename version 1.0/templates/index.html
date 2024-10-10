@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Scraping Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1>Job Scraping Dashboard</h1>
+        <p class="lead">Select a country, city, and number of jobs to scrape.</p>
+    </div>
+    
+    <!-- Progress Bar at the Header -->
+    <div id="progress-header" class="alert alert-info d-none" role="alert">
+        <h4>Scraping Progress</h4>
+        <p id="progress-info">Country: <span id="progress-country"></span> | City: <span id="progress-city"></span> | Jobs to Scrape: <span id="progress-jobs"></span></p>
+        <div class="progress">
+            <div id="scrapingProgressBar" class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+        </div>
+        <p class="mt-2">Jobs Scraped: <span id="jobsCompleted">0</span> / <span id="jobsTotal">0</span></p>
+    </div>
+
+    <!-- Country and City Selection -->
+    <div class="card p-4 shadow-lg">
+        <div class="card-body">
+            <label for="country-select" class="form-label">Country</label>
+            <select id="country-select" class="form-select mb-3" onchange="updateCities()">
+                <option value="" disabled selected>Select a country</option>
+                {% for entry in entries %}
+                <option value="{{ entry.id }}">{{ entry.country }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="city-select" class="form-label">City</label>
+            <select id="city-select" class="form-select mb-3">
+                <option value="" disabled selected>Select a city</option>
+            </select>
+
+            <label for="num-jobs" class="form-label">Number of Jobs to Scrape</label>
+            <input type="number" id="num-jobs" class="form-control mb-3" placeholder="Enter number of jobs" min="1">
+            
+            <button onclick="scrapeJob()" class="btn btn-primary btn-lg">Start Scraping</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let citiesData = {{ entries | tojson }};
+    let isPolling = false;  // Tracks polling status to prevent duplicate polling
+    let scrapeStarted = false;  // Tracks if a new scraping job has started
+
+    function updateCities() {
+        let countryId = $("#country-select").val();
+        let selectedCountry = citiesData.find(entry => entry.id == countryId);
+        
+        if (selectedCountry) {
+            $("#city-select").empty().append('<option value="" disabled selected>Select a city</option>');
+            selectedCountry.cities.forEach(city => {
+                $("#city-select").append(`<option value="${city}">${city}</option>`);
+            });
+        }
+    }
+
+    function scrapeJob() {
+        let countryId = $("#country-select").val();
+        let selectedCity = $("#city-select").val();
+        let numJobs = $("#num-jobs").val();
+
+        if (!countryId || !selectedCity || !numJobs) {
+            alert("Please select a country, city, and specify the number of jobs.");
+            return;
+        }
+
+        // Reset progress information for a new scraping job
+        $("#progress-country").text($("#country-select option:selected").text());
+        $("#progress-city").text(selectedCity);
+        $("#progress-jobs").text(numJobs);
+        $("#jobsTotal").text(numJobs);
+        $("#jobsCompleted").text("0");
+        $("#scrapingProgressBar").css("width", "0%").text("0%");
+        $("#progress-header").removeClass("d-none");
+
+        // Set flags to ensure accurate polling for the new job
+        scrapeStarted = true;
+        isPolling = true;
+
+        $.post("/scrape_jobs", {country_id: countryId, city: selectedCity, num_jobs: numJobs}, function(data) {
+            if (scrapeStarted) {
+                updateProgress();  // Start polling only if a new scrape has started
+            }
+        }).fail(function() {
+            alert("An error occurred while starting the scrape.");
+            scrapeStarted = false;
+            isPolling = false;
+        });
+    }
+
+    function updateProgress() {
+        if (!scrapeStarted) return;  // Stop if no scraping job has started
+
+        $.getJSON("/scraping_progress", function(data) {
+            let completed = data.completed;
+            let total = data.total;
+            let percentage = (total === 0) ? 0 : (completed / total) * 100;
+
+            $("#scrapingProgressBar").css("width", percentage + "%").text(Math.round(percentage) + "%");
+            $("#jobsCompleted").text(completed);
+
+            // Continue polling until the scrape is fully complete
+            if (completed < total) {
+                setTimeout(updateProgress, 1000);
+            } else {
+                // Once completed, stop polling and reset the view after a short delay
+                isPolling = false;
+                scrapeStarted = false;
+                setTimeout(() => {
+                    $("#progress-header").addClass("d-none");
+                    $("#scrapingProgressBar").css("width", "0%").text("0%");
+                    $("#jobsCompleted").text("0");
+                }, 2000);  // Reset after a 2-second delay
+            }
+        }).fail(function() {
+            console.error("Failed to fetch progress data.");
+            isPolling = false;
+            scrapeStarted = false;
+        });
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

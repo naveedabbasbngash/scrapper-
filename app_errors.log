@@ -1,0 +1,110 @@
+2024-10-07 15:24:45,834:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.5:5001
+2024-10-07 15:24:45,834:INFO:[33mPress CTRL+C to quit[0m
+2024-10-07 15:24:45,835:INFO: * Restarting with stat
+2024-10-07 15:24:46,219:WARNING: * Debugger is active!
+2024-10-07 15:24:46,227:INFO: * Debugger PIN: 140-055-978
+2024-10-07 15:25:00,603:INFO:127.0.0.1 - - [07/Oct/2024 15:25:00] "GET / HTTP/1.1" 200 -
+2024-10-07 15:25:00,624:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:25:00,640:INFO:127.0.0.1 - - [07/Oct/2024 15:25:00] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 500 -
+2024-10-07 15:25:01,087:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:25:01,104:INFO:127.0.0.1 - - [07/Oct/2024 15:25:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-10-07 15:25:03,551:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:25:03,551:INFO:127.0.0.1 - - [07/Oct/2024 15:25:03] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:25:03,563:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:25:03,576:INFO:127.0.0.1 - - [07/Oct/2024 15:25:03] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 500 -
+2024-10-07 15:25:03,588:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:25:03,598:INFO:127.0.0.1 - - [07/Oct/2024 15:25:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-10-07 15:26:45,715:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.5:5001
+2024-10-07 15:26:45,716:INFO:[33mPress CTRL+C to quit[0m
+2024-10-07 15:26:45,716:INFO: * Restarting with stat
+2024-10-07 15:26:46,103:WARNING: * Debugger is active!
+2024-10-07 15:26:46,113:INFO: * Debugger PIN: 140-055-978
+2024-10-07 15:26:51,739:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:26:51,746:INFO:127.0.0.1 - - [07/Oct/2024 15:26:51] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:26:51,755:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:26:51,757:INFO:127.0.0.1 - - [07/Oct/2024 15:26:51] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:26:51,785:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:26:51,785:INFO:127.0.0.1 - - [07/Oct/2024 15:26:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:26:54,214:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:26:54,215:INFO:127.0.0.1 - - [07/Oct/2024 15:26:54] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:26:54,222:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:26:54,223:INFO:127.0.0.1 - - [07/Oct/2024 15:26:54] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:26:54,249:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:26:54,249:INFO:127.0.0.1 - - [07/Oct/2024 15:26:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:27:07,749:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:27:07,749:INFO:127.0.0.1 - - [07/Oct/2024 15:27:07] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:27:07,757:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:27:07,757:INFO:127.0.0.1 - - [07/Oct/2024 15:27:07] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:27:07,781:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:27:07,781:INFO:127.0.0.1 - - [07/Oct/2024 15:27:07] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:27:24,100:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:27:24,101:INFO:127.0.0.1 - - [07/Oct/2024 15:27:24] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:27:24,109:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:27:24,110:INFO:127.0.0.1 - - [07/Oct/2024 15:27:24] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:27:24,139:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:27:24,139:INFO:127.0.0.1 - - [07/Oct/2024 15:27:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:27:30,291:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.5:5001
+2024-10-07 15:27:30,291:INFO:[33mPress CTRL+C to quit[0m
+2024-10-07 15:27:30,292:INFO: * Restarting with stat
+2024-10-07 15:27:30,674:WARNING: * Debugger is active!
+2024-10-07 15:27:30,681:INFO: * Debugger PIN: 140-055-978
+2024-10-07 15:27:38,061:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:27:38,067:INFO:127.0.0.1 - - [07/Oct/2024 15:27:38] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:27:38,074:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:27:38,076:INFO:127.0.0.1 - - [07/Oct/2024 15:27:38] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:27:38,101:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:27:38,102:INFO:127.0.0.1 - - [07/Oct/2024 15:27:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:27:40,594:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:27:40,595:INFO:127.0.0.1 - - [07/Oct/2024 15:27:40] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:27:40,603:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:27:40,604:INFO:127.0.0.1 - - [07/Oct/2024 15:27:40] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:27:40,628:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:27:40,628:INFO:127.0.0.1 - - [07/Oct/2024 15:27:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:29:16,132:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.5:5001
+2024-10-07 15:29:16,132:INFO:[33mPress CTRL+C to quit[0m
+2024-10-07 15:29:16,133:INFO: * Restarting with stat
+2024-10-07 15:29:16,519:WARNING: * Debugger is active!
+2024-10-07 15:29:16,527:INFO: * Debugger PIN: 140-055-978
+2024-10-07 15:29:20,006:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:29:20,011:INFO:127.0.0.1 - - [07/Oct/2024 15:29:20] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:29:20,022:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:29:20,032:INFO:127.0.0.1 - - [07/Oct/2024 15:29:20] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:29:20,498:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:29:20,499:INFO:127.0.0.1 - - [07/Oct/2024 15:29:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:29:22,010:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:29:22,010:INFO:127.0.0.1 - - [07/Oct/2024 15:29:22] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:30:01,429:INFO:127.0.0.1 - - [07/Oct/2024 15:30:01] "GET / HTTP/1.1" 200 -
+2024-10-07 15:30:01,438:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:30:01,438:INFO:127.0.0.1 - - [07/Oct/2024 15:30:01] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:30:01,473:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:30:01,473:INFO:127.0.0.1 - - [07/Oct/2024 15:30:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:30:03,536:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:30:03,536:INFO:127.0.0.1 - - [07/Oct/2024 15:30:03] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:32:11,914:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:32:11,916:INFO:127.0.0.1 - - [07/Oct/2024 15:32:11] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:32:11,931:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:32:11,931:INFO:127.0.0.1 - - [07/Oct/2024 15:32:11] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:32:12,010:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:32:12,013:INFO:127.0.0.1 - - [07/Oct/2024 15:32:12] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:33:16,716:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:33:16,716:INFO:127.0.0.1 - - [07/Oct/2024 15:33:16] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:33:16,725:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:33:16,726:INFO:127.0.0.1 - - [07/Oct/2024 15:33:16] "[35m[1mGET /static/css/style.css HTTP/1.1[0m" 5001 -
+2024-10-07 15:33:16,757:ERROR:Unexpected error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-10-07 15:33:16,757:INFO:127.0.0.1 - - [07/Oct/2024 15:33:16] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 5001 -
+2024-10-07 15:33:18,685:ERROR:Error during scraping: name 'jobs_df' is not defined
+2024-10-07 15:33:18,686:INFO:127.0.0.1 - - [07/Oct/2024 15:33:18] "GET /scrape_jobs HTTP/1.1" 200 -
+2024-10-07 15:34:40,726:INFO: * Detected change in '/Users/naveedabbas/web_scrapping_tool/test.py', reloading
+2024-10-07 15:34:40,804:INFO: * Restarting with stat

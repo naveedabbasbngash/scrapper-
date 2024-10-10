@@ -1,0 +1,22 @@
+body {
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.card {
+    border-radius: 10px;
+    background: white;
+}
+
+#scrape-btn {
+    font-size: 1.2rem;
+}
+
+#status-message {
+    font-size: 1rem;
+    color: #28a745;
+}
