@@ -36,8 +36,10 @@
             <label for="num-jobs" class="form-label">Number of Jobs to Scrape</label>
             <input type="number" id="num-jobs" class="form-control mb-3" placeholder="Enter number of jobs" min="1">
             
-            <button onclick="scrapeJob()" class="btn btn-primary btn-lg">Start Scraping</button>
-        </div>
+            <button id="scrapeButton" onclick="startScraping()" class="btn btn-primary btn-lg">
+                <span id="scrapeButtonText">Start Scraping</span>
+            </button>
+                </div>
     </div>
 
     <hr>
@@ -230,6 +232,60 @@
         $("#summaryDate").val(today);
         loadScrapingSummary();
     });
+
+
+    let scrapingInProgress = false;
+
+function startScraping() {
+    if (scrapingInProgress) return;
+
+    const countryId = $("#country-select").val();
+    const selectedCity = $("#city-select").val();
+    const numJobs = $("#num-jobs").val();
+
+    if (!countryId || !selectedCity || !numJobs) {
+        alert("Please select a country, city, and specify the number of jobs.");
+        return;
+    }
+
+    scrapingInProgress = true;
+    updateScrapeButton("Scraping in Progress...", true);
+
+    // Start scraping
+    $.post("/scrape_jobs", {
+        country_id: countryId,
+        city: selectedCity,
+        num_jobs: numJobs
+    }, function (data) {
+        console.log(data.message);
+        if (data.message.includes("started")) {
+            checkScrapingStatus();
+        }
+    }).fail(function () {
+        alert("An error occurred while starting the scrape.");
+        scrapingInProgress = false;
+        updateScrapeButton("Start Scraping", false);
+    });
+}
+
+// Function to update the button's text and disable/enable it
+function updateScrapeButton(text, isDisabled) {
+    $("#scrapeButtonText").text(text);
+    $("#scrapeButton").prop("disabled", isDisabled);
+}
+
+// Function to check scraping progress every few seconds
+function checkScrapingStatus() {
+    const intervalId = setInterval(() => {
+        $.getJSON("/scraping_progress", function (status) {
+            if (status.completed >= status.total && status.total > 0) {
+                scrapingInProgress = false;
+                updateScrapeButton("Scraping Done!", false);
+                clearInterval(intervalId);
+            }
+        });
+    }, 3000); // Check every 3 seconds
+}
 </script>
 
 
