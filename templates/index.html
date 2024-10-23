@@ -72,45 +72,108 @@
 
 <!-- Settings Modal -->
 <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="settingsModalLabel">Exclusion Settings</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="exclusionForm">
-          <div class="mb-3">
-            <label for="excludeTitle" class="form-label">Exclude in Title</label>
-            <input type="text" class="form-control" id="excludeTitle" placeholder="Enter words to exclude in Title">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="settingsModalLabel">Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Main Tabs for Each Entity (Title, Company, Location, etc.) -->
+          <ul class="nav nav-tabs" id="entityTabs" role="tablist">
+            <li class="nav-item">
+              <button class="nav-link active" id="title-tab" data-bs-toggle="tab" data-bs-target="#title" type="button" role="tab" aria-controls="title" aria-selected="true">Title</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" id="company-tab" data-bs-toggle="tab" data-bs-target="#company" type="button" role="tab" aria-controls="company" aria-selected="false">Company</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" id="location-tab" data-bs-toggle="tab" data-bs-target="#location" type="button" role="tab" aria-controls="location" aria-selected="false">Location</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" id="salary-tab" data-bs-toggle="tab" data-bs-target="#salary" type="button" role="tab" aria-controls="salary" aria-selected="false">Salary</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" id="type-tab" data-bs-toggle="tab" data-bs-target="#type" type="button" role="tab" aria-controls="type" aria-selected="false">Type</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="false">Description</button>
+            </li>
+          </ul>
+  
+          <!-- Tab Content for Each Entity -->
+          <div class="tab-content mt-3" id="entityTabContent">
+            <!-- Template for settings content with add and remove options -->
+            <script type="text/template" id="settings-template">
+              <div class="entry mb-2 row">
+                <div class="col-md-5">
+                  <input type="text" class="form-control remove-word" placeholder="Word to remove/replace">
+                </div>
+                <div class="col-md-5">
+                  <input type="text" class="form-control replacement-word" placeholder="Replacement (leave empty to remove)">
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-danger remove-entry">Remove</button>
+                </div>
+              </div>
+            </script>
+  
+            <!-- Settings Content for Each Entity -->
+            <div class="tab-pane fade show active" id="title" role="tabpanel" aria-labelledby="title-tab">
+              <h6>Title Settings</h6>
+              <div id="title-settings">
+                <!-- Dynamic entries will be added here -->
+              </div>
+              <button type="button" class="btn btn-secondary mt-2" onclick="addEntry('title')">Add New Entry</button>
+            </div>
+  
+            <div class="tab-pane fade" id="company" role="tabpanel" aria-labelledby="company-tab">
+              <h6>Company Settings</h6>
+              <div id="company-settings">
+                <!-- Dynamic entries will be added here -->
+              </div>
+              <button type="button" class="btn btn-secondary mt-2" onclick="addEntry('company')">Add New Entry</button>
+            </div>
+  
+            <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+              <h6>Location Settings</h6>
+              <div id="location-settings">
+                <!-- Dynamic entries will be added here -->
+              </div>
+              <button type="button" class="btn btn-secondary mt-2" onclick="addEntry('location')">Add New Entry</button>
+            </div>
+  
+            <div class="tab-pane fade" id="salary" role="tabpanel" aria-labelledby="salary-tab">
+              <h6>Salary Settings</h6>
+              <div id="salary-settings">
+                <!-- Dynamic entries will be added here -->
+              </div>
+              <button type="button" class="btn btn-secondary mt-2" onclick="addEntry('salary')">Add New Entry</button>
+            </div>
+  
+            <div class="tab-pane fade" id="type" role="tabpanel" aria-labelledby="type-tab">
+              <h6>Type Settings</h6>
+              <div id="type-settings">
+                <!-- Dynamic entries will be added here -->
+              </div>
+              <button type="button" class="btn btn-secondary mt-2" onclick="addEntry('type')">Add New Entry</button>
+            </div>
+  
+            <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description-tab">
+              <h6>Description Settings</h6>
+              <div id="description-settings">
+                <!-- Dynamic entries will be added here -->
+              </div>
+              <button type="button" class="btn btn-secondary mt-2" onclick="addEntry('description')">Add New Entry</button>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="excludeCompany" class="form-label">Exclude in Company</label>
-            <input type="text" class="form-control" id="excludeCompany" placeholder="Enter words to exclude in Company">
-          </div>
-          <div class="mb-3">
-            <label for="excludeLocation" class="form-label">Exclude in Location</label>
-            <input type="text" class="form-control" id="excludeLocation" placeholder="Enter words to exclude in Location">
-          </div>
-          <div class="mb-3">
-            <label for="excludeSalary" class="form-label">Exclude in Salary</label>
-            <input type="text" class="form-control" id="excludeSalary" placeholder="Enter words to exclude in Salary">
-          </div>
-          <div class="mb-3">
-            <label for="excludeType" class="form-label">Exclude in Type</label>
-            <input type="text" class="form-control" id="excludeType" placeholder="Enter words to exclude in Type">
-          </div>
-          <div class="mb-3">
-            <label for="excludeDescription" class="form-label">Exclude in Description</label>
-            <input type="text" class="form-control" id="excludeDescription" placeholder="Enter words to exclude in Description">
-          </div>
-          <button type="button" class="btn btn-primary" onclick="saveExclusionSettings()">Save</button>
-        </form>
+  
+          <!-- Save Button -->
+          <button type="button" class="btn btn-primary mt-3" onclick="saveSettings()">Save</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 <<!-- Place this at the bottom of your index.html, before the closing body tag -->
 <script>
     let citiesData = {{ entries | tojson }};
@@ -179,19 +242,74 @@
     }
 
     function openSettingsModal() {
-        $.getJSON("/get_exclusions", function(data) {
-            console.log("Exclusions loaded:", data);
+    console.log("Opening settings modal...");
+    $.getJSON("/get_settings", function(data) {
+        console.log("Data received from /get_settings:", data); // Log the data to see what was fetched
 
-            $('#excludeTitle').val(data.Title ? data.Title.join(', ') : '');
-            $('#excludeCompany').val(data.Company ? data.Company.join(', ') : '');
-            $('#excludeLocation').val(data.Location ? data.Location.join(', ') : '');
-            $('#excludeSalary').val(data.Salary ? data.Salary.join(', ') : '');
-            $('#excludeType').val(data.Type ? data.Type.join(', ') : '');
-            $('#excludeDescription').val(data.Description ? data.Description.join(', ') : '');
-        }).always(function() {
-            $('#settingsModal').modal('show');
+        const entities = ['title', 'company', 'location', 'salary', 'type', 'description'];
+        
+        entities.forEach(entity => {
+            const container = $('#' + entity + '-settings');
+            container.empty(); // Clear previous entries
+            
+            console.log(`Populating entries for ${entity}:`, data[entity]); // Log each entity's entries
+
+            (data[entity] || []).forEach(entry => {
+                addEntry(entity, entry.remove, entry.replace);
+            });
         });
-    }
+    }).done(function() {
+        console.log("Showing modal after loading entries.");
+        $('#settingsModal').modal('show');
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Error fetching settings:", textStatus, errorThrown); // Log any errors
+    });
+}
+
+// Function to add a new entry field with optional values for remove/replace
+function addEntry(entity, removeWord = '', replaceWord = '') {
+    const template = $($('#settings-template').html());
+    template.find('.remove-word').val(removeWord); // Set remove word if provided
+    template.find('.replacement-word').val(replaceWord); // Set replace word if provided
+    template.find('.remove-entry').click(function() {
+        $(this).closest('.entry').remove(); // Remove the entry when 'Remove' button is clicked
+    });
+    $('#' + entity + '-settings').append(template); // Append the entry to the specific entity's container
+}
+
+
+// Function to gather all settings and send to the server
+function saveSettings() {
+    const settings = {};
+    const entities = ['title', 'company', 'location', 'salary', 'type', 'description'];
+
+    entities.forEach(entity => {
+        const entries = [];
+        $('#' + entity + '-settings .entry').each(function() {
+            const removeWord = $(this).find('.remove-word').val().trim();
+            const replaceWord = $(this).find('.replacement-word').val().trim();
+
+            if (removeWord) {
+                entries.push({ remove: removeWord, replace: replaceWord || null });
+            }
+        });
+        settings[entity] = entries;
+    });
+
+    $.ajax({
+        url: '/save_exclusions',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(settings),
+        success: function(response) {
+            $('#settingsModal').modal('hide');
+            alert(response.message);
+        },
+        error: function() {
+            alert("Error saving settings.");
+        }
+    });
+}
 
     function saveExclusionSettings() {
         const exclusions = {
